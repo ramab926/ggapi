@@ -1009,9 +1009,13 @@ async def process_card_async(cc, mes, ano, cvv, site_url, variant_id=None, proxy
 
 app = Flask(__name__)
 
+@app.route("/")
+def home():
+    return "API Running!"
 @app.route('/shopify', methods=['GET'])
 def shopify_checker():
     try:
+        
         site = request.args.get('site')
         cc_string = request.args.get('cc')
         proxy_str = request.args.get('proxy')
